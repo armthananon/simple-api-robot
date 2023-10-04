@@ -15,5 +15,11 @@ pipeline {
                 sh 'cd simple-api-robot && robot test-calculate.robot'
             }
         }
+        stage('push to registry') {
+            agent { label 'test' }
+            steps {
+                sh 'docker push registry.gitlab.com/armza054/test-api'
+            }
+        }
     }
 }
