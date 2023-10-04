@@ -5,7 +5,7 @@ pipeline {
         stage('clone simple-api-robot') {
             agent { label 'test' }
             steps {
-                sh 'git clone https://github.com/armthananon/simple-api-robot'
+                sh 'rm -f -r simple-api-robot && git clone https://github.com/armthananon/simple-api-robot'
             }
         }
         stage('run robot test') {
